@@ -19,6 +19,7 @@ body {
   gap: 30px;
   border-radius: 20px;
   box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+  padding-bottom: 25px;
 }
 
 .heading h1 {
@@ -27,13 +28,26 @@ body {
 
 .list-breakdown {
   display: flex;
-  gap: 30px;
 }
 
 .card {
   border: 2px solid black;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.bd1 {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.bd2 {
+  border-left: 0;
+  border-right: 0;
+}
+
+.bd3 {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .input-section {
@@ -93,6 +107,9 @@ body {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .task-info {
@@ -111,6 +128,15 @@ body {
   height: 15px;
 }
 
+.task-item {
+  animation: fade-up 0.5s ease-in-out;
+}
+
+@keyframes fade-up {
+  from{opacity: 0; transform: translateY(3px);}
+  to {opacity: 1; transform: translateY(0px);}
+}
+
 .complete-btn {
   background-color: greenyellow;
   width: 30px;
@@ -121,6 +147,7 @@ body {
   justify-content: center;
   align-items: center;
   transition: 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .complete-btn:hover {
@@ -136,9 +163,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .delete-btn:hover {
   transform: translateY(-1px);
   transition: 0.2s ease-in-out;
 }
+
+.hidden {
+  display: none;
+}
+
+
