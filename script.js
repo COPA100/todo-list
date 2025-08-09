@@ -8,11 +8,34 @@ let pendTasks = 0;
 const pendingTasks = document.querySelector("#pending-tasks");
 
 function addTask() {
+  const input = document.querySelector(".todo-input").value;
+  if (input === "") {
+    const invalidDiv = document.querySelector(".invalid-input");
+
+    invalidDiv.classList.remove("hidden");
+    invalidDiv.style.transition = "0.3s ease";
+    invalidDiv.style.opacity = "1";
+    invalidDiv.style.transform = "translateY(0) scale(1)";
+
+    setTimeout(() => {
+      invalidDiv.style.opacity = "0";
+      invalidDiv.style.transform = "translateY(-10px) scale(0.9)";
+
+      setTimeout(() => {
+        invalidDiv.classList.add("hidden");
+        invalidDiv.style.opacity = "";
+        invalidDiv.style.transform = "";
+        invalidDiv.style.transition = "";
+      }, 300);
+    }, 1000);
+
+    return;
+  }
+
   tasks++;
   totalTasks.innerHTML = tasks;
   if (tasks === 1) document.querySelector(".no-tasks").classList.add("hidden");
 
-  const input = document.querySelector(".todo-input").value;
   const date = document.querySelector(".todo-date").value;
   const taskList = document.getElementById("task-list");
   const item = document.createElement("li");
